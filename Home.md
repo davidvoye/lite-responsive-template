@@ -33,3 +33,20 @@ $ git clone https://bitbucket.org/wwuweb/lite-responsive-template.git/wiki
 
 Wiki pages are normal files, with the .md extension. You can edit them locally, as well as creating new ones.
 
+# Style Guide Draft
+
+## Presentation-free Markup
+
+Refrain from creating class names based on how something looks.
+
+```
+.blue-left-links { color:blue; float:left; }
+// Is less helpful when you happen to change the color scheme and layout later; but the HTML structure remains the same.
+.blue-left-links { color:pink; float:none; }
+// blue-left-links no longer makes sense. Describe the function of this element. For example, if this class was applied to a <ul> element that was styled different according to the time of year, this would be more helpful:
+$season-hue:pink;
+.seasonal-navigation { color:$season-hue; }
+// Note the use of a variable which can be used elsewhere with minimal upkeep next time the season changes.
+```
+
+## DRY - Don't Repeat Yourself
