@@ -34,6 +34,7 @@ $ git clone https://bitbucket.org/wwuweb/lite-responsive-template.git/wiki
 Wiki pages are normal files, with the .md extension. You can edit them locally, as well as creating new ones.
 
 # Style Guide Draft
+Amy's note: I'll probably look back on the examples I've made so far and wince, so if you have any better explanations or examples, that would be great. I'm sure once we stumble upon actual examples as we're working those would be better replacements:
 
 ## Presentation-free Markup
 
@@ -53,4 +54,29 @@ $season-hue:pink;
 // Note the use of a variable which can be used elsewhere with minimal upkeep next time the season changes.
 ```
 
+## Other Naming Conventions
+
+Taking a bit from SMACSS.
+
+### Prefixes
+
+```
+.layout-sidebar // layout- describes a class which fundamentally divides the page into sections.
+```
+Most noteably, layout-s are relevant to our various Dreamweaver templates. They will typically be applied to the <body> element of a .shtml file according to their template. If a structural style from layout-x was required on layout-y, then ideally, .layout-x could be applied to a parent container. This reduces redundancy and increases specificity:
+```
+...
+<body class="layout-y">
+	...
+	<article class="layout-x">
+		<div>...</div>
+	</article>
+...
+</body>
+```
+```
+.layout-y .layout-x div { /* Prevents having to create a whole new class for this one style because we are DRY (Don't Repeat Yourself, see below). */ }
+```
+
 ## DRY - Don't Repeat Yourself
+
