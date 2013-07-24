@@ -56,10 +56,10 @@ $season-hue:pink;
 
 ## Other Naming Conventions
 
-Taking a bit from SMACSS.
+Taking a bit from [SMACSS](http://smacss.com/).
 
-### Prefixes
-
+### Class Prefixes
+#### .layout-
 ```
 .layout-sidebar // layout- describes a class which fundamentally divides the page into sections.
 ```
@@ -74,9 +74,38 @@ Most noteably, layout-s are relevant to our various Dreamweaver templates. They 
 ...
 </body>
 ```
+Prevents having to create a whole new class for this one style because we are DRY (Don't Repeat Yourself):
 ```
-.layout-y .layout-x div { /* Prevents having to create a whole new class for this one style because we are DRY (Don't Repeat Yourself, see below). */ }
+.layout-y .layout-x div { ... }
+```
+
+#### .module-
+
+Classes prefixed with 'module-' represent "reusable, modular parts of our design". Our previous static template included "blue boxes" that would fit in this category.
+
+```
+.module-box { @include box(); }
+
+.module-box.float-left { @include box(left); }
+```
+
+#### .is- (states)
+
+Prefixing a class with .is- can be a good way to describe an action. It also visually separates them from other classes.
+```
+.is-open {}
+.is-closed {}
+.is-hidden { display:none; }
+.is-active {}
+.is-inactive {}
+```
+
+They can be combined with other classes in a helpful, readable way:
+```
+.module-faq.is-closed { @include faq(); @include closed; }
+.main-nav.is-open { @include open; }
 ```
 
 ## DRY - Don't Repeat Yourself
 
+## Stick to Classes; Don't use IDs (?)
