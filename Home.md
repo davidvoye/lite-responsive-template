@@ -43,6 +43,7 @@ Currently, we are importing several partials into the main.scss file. If adding 
 ### _base.scss
 
 Contains:
+
 * Variables (for colors, math, commonly used increments)
 * Framework imports (Compass, CSS3, CSS reset, Zen Grids)
 * Font imports (Muli from Google Fonts)
@@ -50,6 +51,7 @@ Contains:
 ### _mixins.scss
 
 Contains:
+
 * Modules created by Mixins. Mixins are a SASS feature.
 * Likely to contain a lot of .module- prefixed classes.
 
@@ -58,6 +60,7 @@ See .module- class prefix below for more information: "Classes prefixed with 'mo
 ### _layout.scss
 
 Contains:
+
 * Styles related to the structure and sectioning of the page.
 * Will contain a lot of .layout- prefixed classes
 
