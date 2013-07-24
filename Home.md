@@ -40,18 +40,21 @@ Amy's note: I'll probably look back on the examples I've made so far and wince, 
 
 Currently, we are importing several partials into the main.scss file. If adding more, be conscious about the order you place them in. _mixins and _base are above _layout because they contain varibles and mixins that layout requires. _media-queries likely modify things _layout has already declared, so based on the cascade, they needed to be imported after _layout.
 
+
 Pretty much, if something *isn't* one of the following, it can go directly into main.scss:
 
 * Color/math variable
 * Font or framework import
-* Module - a reusuable, modular part of the design.
+* Mixin - *basis for* reusable, modular part of the design.
 * Layout - "a class which fundamentally divides the page into sections"
 * Media Query - exemptions might be made for one line media queries (?)
+
 
 What *does* go into main.scss? Examples:
 
 * Typography
 * Color related styles
+* Modules in use - mixins *applied for* reusable, modular part of the design.
 * ...
 
 ### _base.scss
