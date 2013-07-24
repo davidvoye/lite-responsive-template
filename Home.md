@@ -36,6 +36,35 @@ Wiki pages are normal files, with the .md extension. You can edit them locally, 
 # Style Guide Draft
 Amy's note: I'll probably look back on the examples I've made so far and wince, so if you have any better explanations or examples, that would be great. I'm sure once we stumble upon actual examples as we're working those would be better replacements:
 
+## SASS/.scss Partials
+
+Currently, we are importing several partials into the main.scss file. If adding more, be conscious about the order you place them in. _mixins and _base are above _layout because they contain varibles and mixins that layout requires. _media-queries likely modify things _layout has already declared, so based on the cascade, they needed to be imported after _layout.
+
+### _base.scss
+
+Contains:
+* Variables (for colors, math, commonly used increments)
+* Framework imports (Compass, CSS3, CSS reset, Zen Grids)
+* Font imports (Muli from Google Fonts)
+
+### _mixins.scss
+
+Contains:
+* Modules created by Mixins. Mixins are a SASS feature.
+* Likely to contain a lot of .module- prefixed classes.
+
+See .module- class prefix below for more information: "Classes prefixed with 'module-' represent 'reusable, modular parts of our design'" like boxes, image figures, or FAQ accordions.
+
+### _layout.scss
+
+Contains:
+* Styles related to the structure and sectioning of the page.
+* Will contain a lot of .layout- prefixed classes
+
+See .layout- class prefix below for more information: "layout- describes a class which fundamentally divides the page into sections."
+
+### _media-queries.scss
+
 ## Presentation-free Markup
 
 Refrain from creating class names based on how something looks.
@@ -54,14 +83,16 @@ $season-hue:pink;
 // Note the use of a variable which can be used elsewhere with minimal upkeep next time the season changes.
 ```
 
-## Other Naming Conventions
+# Classes & Naming Conventions
 
 Taking a bit from [SMACSS](http://smacss.com/).
 
-### Class Prefixes
-#### .layout-
+## Class Prefixes
+### .layout-
+
+layout- describes a class which fundamentally divides the page into sections.
 ```
-.layout-sidebar // layout- describes a class which fundamentally divides the page into sections.
+.layout-sidebar { display:block; } 
 ```
 Most noteably, layout-s are relevant to our various Dreamweaver templates. They will typically be applied to the <body> element of a .shtml file according to their template. If a structural style from layout-x was required on layout-y, then ideally, .layout-x could be applied to a parent container. This reduces redundancy and increases specificity:
 ```
@@ -79,7 +110,7 @@ Prevents having to create a whole new class for this one style because we are DR
 .layout-y .layout-x div { ... }
 ```
 
-#### .module-
+### .module-
 
 Classes prefixed with 'module-' represent "reusable, modular parts of our design". Our previous static template included "blue boxes" that would fit in this category.
 
@@ -89,7 +120,7 @@ Classes prefixed with 'module-' represent "reusable, modular parts of our design
 .module-box.float-left { @include box(left); }
 ```
 
-#### .is- (states)
+### .is- (states)
 
 Prefixing a class with .is- can be a good way to describe an action. It also visually separates them from other classes.
 ```
