@@ -70,7 +70,7 @@ Contains:
 Contains:
 
 * Modules created by Mixins. Mixins are a SASS feature.
-* Likely to contain a lot of .module- prefixed classes.
+* ["Sass code that doesn’t cause Sass to actually output CSS."](http://thesassway.com/beginner/how-to-structure-a-sass-project)
 
 See .module- class prefix below for more information: "Classes prefixed with 'module-' represent 'reusable, modular parts of our design'" like boxes, image figures, or FAQ accordions.
 
@@ -82,6 +82,13 @@ Contains:
 * Will contain a lot of .layout- prefixed classes
 
 See .layout- class prefix below for more information: "layout- describes a class which fundamentally divides the page into sections."
+
+### _themes.scss (?)
+
+Specific groups of variations from _layout.scss default styles. Potentially will be implemented if we allow users to select a sub-theme (based around lime green or gray instead of light blue, for example.)
+Contains:
+
+* Mostly color specific changes. Should be imported after _layout.scss
 
 ### _media-queries.scss
 
