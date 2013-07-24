@@ -4,7 +4,7 @@ This is the Documentation Wiki for the Lite Responsive Dreamweaver Template at W
 
 ## About
 
-The Lite Template is meant to be the responsive rendition of the current "static" template. It is a step toward the Drupal design, but not quite as "heavy". Therefore, it is the "Lite" template.
+The Lite Template is meant to be the responsive rendition of the current "static" template. It is a step toward the Drupal design, but not quite as "heavy". Neither is "static" the best descriptor now that it will respond to device and window sizes. Therefore, it is the "Lite" template.
 
 ### Goals
 
