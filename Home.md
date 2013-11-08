@@ -170,4 +170,12 @@ They can be combined with other classes in a helpful, readable way:
 
 ## DRY - Don't Repeat Yourself
 
-## Stick to Classes; Don't use IDs (?)
+## Stick to Classes; Don't use IDs
+
+Great explaination from [Stubbornella in the OOCSS FAQ](https://github.com/stubbornella/oocss/wiki/faq#should-i-use-ids-to-style-my-content):
+"There are two reasons for not using IDs to style content:
+
+1. They mess up specificity because they are too strong (the most important reason)
+2. They are unique identifiers, which makes components built with them something like singletons, not reusable on the same page
+
+On the other hand, IDs are great for linking and JS hooks. Put them in the HTML, just don’t use them for styles."
