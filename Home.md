@@ -309,6 +309,8 @@ $quarter-base:($baseline/4); // 5px
 
 ## Differences Between the Static Template and the Lite Responsive Template
 
+* Created separate styling classes for users and removed default underline for h2 elements. This should prevent users from only using headings (h1-h6) for styling purposes. Should encourage better use of headings for content hierarchy.
+
 ### File Structure
 
 ### Templates
