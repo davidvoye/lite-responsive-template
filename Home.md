@@ -19,6 +19,10 @@ The Lite Template is meant to be the responsive rendition of the current "static
 * H1's will be the specific page's title, rather than the site's name which will reside in the <title> element and banner.
 * Provide users with a "quick guide" and more indepth articles about using the template. The quick guide on the future IT/WebTech site would remind users of the following types of tasks: Replace "sharename"; update contact information; edit <titles>; don't use inline styles, etc; use custom.css; do not use your site as a "portal"; etc.
 
+### To-Do
+
+* Convert em font-size units to rem when there is required amount of [browser support](http://caniuse.com/rem)
+
 ## Wiki features
 
 This wiki uses the [Markdown](http://daringfireball.net/projects/markdown/) syntax.
@@ -34,28 +38,29 @@ $ git clone https://bitbucket.org/wwuweb/lite-responsive-template.git/wiki
 Wiki pages are normal files, with the .md extension. You can edit them locally, as well as creating new ones.
 
 # Style Guide Draft
-Amy's note: I'll probably look back on the examples I've made so far and wince, so if you have any better explanations or examples, that would be great. I'm sure once we stumble upon actual examples as we're working those would be better replacements:
 
 ## SASS/.scss Partials
 
-Currently, we are importing several partials into the main.scss file. If adding more, be conscious about the order you place them in. _mixins and _base are above _layout because they contain varibles and mixins that layout requires. _media-queries likely modify things _layout has already declared, so based on the cascade, they needed to be imported after _layout.
+### Order of Importing
+Currently, we are importing several partials into the main.scss file. If adding more, be conscious about the order you place them in. _base is above _layout and _user because it contains variables and mixins that _layout and _user are dependent on. _media-queries likely modify things _layout has already declared, so based on the cascade, they needed to be imported after _layout.
 
+### Non-Compiling vs. Compiling
+The _base partial contains variables and mixins that pretty much every other SCSS file will use. It is imported into every SCSS file so it is a good candidate for being non-compiling. Non-compiling means it will not generate its own CSS code. Variables and mixins don't have a CSS equivalent and are simply helpers for the rest of our styles.
 
-Pretty much, if something *isn't* one of the following, it can go directly into main.scss:
+_fonts, _reset, and _zen all contain code that will be compiled into CSS as well as containing helpers that can be used elsewhere. They are imported at the top of our main.scss file for this reason. We don't want them repeated on every partial, so they are not imported in _base.
 
-* Color/math variable
-* Font or framework import
-* Mixin - *basis for* reusable, modular part of the design.
-* Layout - "a class which fundamentally divides the page into sections"
-* Media Query - exemptions might be made for one line media queries (?)
+### What Goes Where?
 
+#### _base.scss and _mixins.scss
+Non-compiling helper SCSS code. Variables, mixins, etc.
 
-What *does* go into main.scss? Examples:
+#### _media-queries.scss
+Contains layout related classes grouped by media queries. Layout classes: "A class which fundamentally divides the page into sections."
 
-* Typography
-* Color related styles
-* Modules in use - mixins *applied for* reusable, modular part of the design.
-* ...
+#### _user.scss
+Classes created specifically for other users/clients on campus to use in Dreamweaver's GUI. The audience and users for these "unsemantic" classes will likely be working with Dreamweaver in the Design view. They are likely unfamiliar and uncomfortable with code so the classes we create should be as meaningful as possible to us, the developers, but still non-tech-user-friendly.
+
+Avoid explicitly presentational class names when possible, but if they are unavoidable, prefix the class with "style-". Prefix layout-related classes (like floats and clears) with "layout-"
 
 ### _base.scss
 
