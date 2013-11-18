@@ -71,13 +71,13 @@ Also contains media-query-specific styles.
 This is where all the hacky, sketchy, shameful styles live. This partial is not meant as a solution, but a temporary place to use !important or other less-desired code until a better solution is found.
 
 From [Harry Robert's article on shame.css](http://csswizardry.com/2013/04/shame-css/):
-"By putting your bodges, hacks and quick-fixes in their own file you do a few things:
-
-* You make them stick out like a sore thumb.
-* You keep your ‘main’ codebase clean.
-* You make developers aware that their hacks are made very visible.
-* You make them easier to isolate and fix.
-* $ git blame shame.css."
+> "By putting your bodges, hacks and quick-fixes in their own file you do a few things:
+> 
+> * You make them stick out like a sore thumb.
+> * You keep your ‘main’ codebase clean.
+> * You make developers aware that their hacks are made very visible.
+> * You make them easier to isolate and fix.
+> * $ git blame shame.css."
 
 Be sure to include documentation and notes inside of comments like these double forward-slashes.
 
@@ -90,7 +90,7 @@ In the vein of the [Separation of Concerns](http://en.wikipedia.org/wiki/Separat
 
 Refrain from creating class names (an HTML attribute) based on how something looks.
 
-"Class names should communicate *useful* information to *developers*. It’s helpful to understand what a specific class name is going to do when you read a DOM snippet, especially in multi-developer teams where front-enders won’t be the only people working with HTML components." -[Nicolas Gallagher on HTML Semantics](http://nicolasgallagher.com/about-html-semantics-front-end-architecture/)
+> "Class names should communicate *useful* information to *developers*. It’s helpful to understand what a specific class name is going to do when you read a DOM snippet, especially in multi-developer teams where front-enders won’t be the only people working with HTML components." -[Nicolas Gallagher on HTML Semantics](http://nicolasgallagher.com/about-html-semantics-front-end-architecture/)
 
 ```
 .blue-left-links { color:blue; float:left; }
@@ -109,7 +109,7 @@ $season-hue:pink;
 
 ## [SMACSS](http://smacss.com/) Concepts
 
-"At the very core of SMACSS is categorization. By categorizing CSS rules, we begin to see patterns and can define better practices around each of these patterns." -[SMACSS](http://smacss.com/book/categorizing)
+> "At the very core of SMACSS is categorization. By categorizing CSS rules, we begin to see patterns and can define better practices around each of these patterns." -[SMACSS](http://smacss.com/book/categorizing)
 
 ### Class Prefixes
 
@@ -139,6 +139,26 @@ They can be combined with other classes in a helpful, readable way:
 ```
 .module-accordion.is-closed { ... }
 .main-nav.is-open { ... }
+```
+
+## Efficient Selectors
+
+From [Mozilla Developer Network's "Writing Efficient CSS"](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Writing_efficient_CSS):
+
+* "Don't qualify ... rules with tag names or classes"
+```
+// Bad:
+// button#search { ... }
+// Better:
+// .search-button { ... }
+```
+
+* "Use the most specific [selector] possible" and don't nest selectors deeper than ~3 levels
+```
+// Bad:
+// html body main article .module p.call-out { ... }
+// Better:
+// .module .call-out { ... }
 ```
 
 ## DRY - Don't Repeat Yourself
@@ -173,12 +193,12 @@ a:hover { @include transition(.5s); **@extend brand-voice;** }
 ## Stick to Classes; Don't use IDs
 
 Great explaination from [Stubbornella in the OOCSS FAQ](https://github.com/stubbornella/oocss/wiki/faq#should-i-use-ids-to-style-my-content):
-"There are two reasons for not using IDs to style content:
-
-1. They mess up specificity because they are too strong (the most important reason)
-2. They are unique identifiers, which makes components built with them something like singletons, not reusable on the same page
-
-On the other hand, IDs are great for linking and JS hooks. Put them in the HTML, just don’t use them for styles."
+> "There are two reasons for not using IDs to style content:
+> 
+> 1. They mess up specificity because they are too strong (the most important reason)
+> 2. They are unique identifiers, which makes components built with them something like singletons, not reusable on the same page
+> 
+> On the other hand, IDs are great for linking and JS hooks. Put them in the HTML, just don’t use them for styles."
 
 
 # File Structure
@@ -227,11 +247,29 @@ On the other hand, IDs are great for linking and JS hooks. Put them in the HTML,
 *** _shame.scss
 *** _user.scss
 
+
+# Design & Typography
+
+## Layout
+
+### Repeatable & Reusable
+
+Increments, variables
+
+## Typography
+
+### Baseline Grid
+
+### Type Scale & Hierarchy
+
+
 # Converting Static Template Sites to the Lite Responsive Template
 
 ## How To
 
-## Old Classes and Selectors
+## Differences Between the Static Template and the Lite Responsive Template
+
+### Old Classes and Selectors
 
 (List equivalents for easy find and replace)
 
