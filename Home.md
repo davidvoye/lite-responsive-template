@@ -9,6 +9,7 @@ The Lite Template is meant to be the responsive rendition of the current "static
 ### Goals
 
 * Start from scratch using the latest web standards and modern practices: HTML5, SASS/.scss
+* Maintain support for "modern browsers" and IE 8+ **(?)**
 * Keep in mind the current/previous version of the template. Maintain the same Dreamweaver template regions for relatively simple conversions.
 * Provide a custom.css file for users while maintaining the rest of the CSS/SASS in wwucommons.
 * All new sites will use analytics and site/Western search capabilities (in the style of Drupal).
