@@ -184,9 +184,9 @@ a:hover { color: $brandColor; }
 
 // If these three selectors had other properties, this color could be @extend-ed with a placeholder selector:
 %brand-voice { color: $brandColor; }
-.module-slide-caption { font-size: 2em; **@extend brand-voice;** }
-h2 { font-weight:bold; **@extend brand-voice;** }
-a:hover { @include transition(.5s); **@extend brand-voice;** }
+.module-slide-caption { font-size: 2em; @extend brand-voice; }
+h2 { font-weight:bold; @extend brand-voice; }
+a:hover { @include transition(.5s); @extend brand-voice; }
 
 ```
 
