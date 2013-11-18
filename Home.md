@@ -205,47 +205,47 @@ Great explaination from [Stubbornella in the OOCSS FAQ](https://github.com/stubb
 
 ## Local site
 
-- /customize
--- customize.css
--- site-banner.jpg
--- site-banner.psd
--- navigation.html
--- header.html
--- README / Instructions.txt
+* /customize
+    * customize.css
+    * site-banner.jpg
+    * site-banner.psd
+    * navigation.html
+    * header.html
+    * README / Instructions.txt
 
--- /templates
--- sidebar.dwt
--- full-page.dwt
--- two-column.dwt
--- three-column.dwt
+* /templates
+    * sidebar.dwt
+    * full-page.dwt
+    * two-column.dwt
+    * three-column.dwt
 
-- /images
--- /gallery
--- /slideshow
+* /images
+    * /gallery
+    * /slideshow
 
-- /documents
+* /documents
 
-- index.shtml
-- contact.shtml
-- staff-faculty-listing.shtml
-- faq.shtml
+* index.shtml
+* contact.shtml
+* staff-faculty-listing.shtml
+* faq.shtml
 
 ## wwucommons
 
-- /js
--- western.js
+* /js
+    * western.js
 
-- /styles
--- /css
--- /scss
---- main.scss
---- _base.scss
---- _fonts.scss
---- _media-queries.scss
---- _mixins.scss
---- _reset.scss
---- _shame.scss
---- _user.scss
+* /styles
+    * /css
+    * /scss
+        * main.scss
+        * _base.scss
+        * _fonts.scss
+        * _media-queries.scss
+        * _mixins.scss
+        * _reset.scss
+        * _shame.scss
+        * _user.scss
 
 
 # Design & Typography
