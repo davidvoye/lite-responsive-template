@@ -68,7 +68,7 @@ Also contains media-query-specific styles.
 
 #### _shame.scss
 
-This is where all the hacky, sketchy, shameful styles live. This partial is not meant as a solution, but a temporary place to use !important or other less-desired code until a better solution is found.
+This is where all the hacky, sketchy, shameful styles live. This partial is not meant as a final solution, but a temporary place to use !important or other less-desired code until a better solution is found.
 
 From [Harry Robert's article on shame.css](http://csswizardry.com/2013/04/shame-css/):
 > "By putting your bodges, hacks and quick-fixes in their own file you do a few things:
@@ -148,17 +148,17 @@ From [Mozilla Developer Network's "Writing Efficient CSS"](https://developer.moz
 * "Don't qualify ... rules with tag names or classes"
 ```
 // Bad:
-// button#search { ... }
+button#search { ... }
 // Better:
-// .search-button { ... }
+.search-button { ... }
 ```
 
 * "Use the most specific [selector] possible" and don't nest selectors deeper than ~3 levels
 ```
 // Bad:
-// html body main article .module p.call-out { ... }
+html body main article .module p.call-out { ... }
 // Better:
-// .module .call-out { ... }
+.module .call-out { ... }
 ```
 
 ## DRY - Don't Repeat Yourself
