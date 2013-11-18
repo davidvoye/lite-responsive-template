@@ -17,13 +17,13 @@ The Lite Template is meant to be the responsive rendition of the current "static
 * Provide responsive table styles, image solutions, and accessible content.
 * Provide various page examples for users, such as: contact page, FAQ, staff listing, user "bio" page.
 * H1's will be the specific page's title, rather than the site's name which will reside in the <title> element and banner.
-* Provide users with a "quick guide" and more indepth articles about using the template. The quick guide on the future IT/WebTech site would remind users of the following types of tasks: Replace "sharename"; update contact information; edit <titles>; don't use inline styles, etc; use custom.css; do not use your site as a "portal"; etc.
+* Provide users with a "quick guide" and more indepth articles about using the template. The quick guide on the future IT/WebTech site would remind users of the following types of tasks: Replace "sharename"; update contact information; edit <titles>; don't use inline styles, etc; use custom.css; don't try to be a link directory or portal (was previously more helpful before search engines became popular/widespread); etc.
 
 ### To-Do
 
 * Convert em font-size units to rem when there is required amount of [browser support](http://caniuse.com/rem)
 
-## Wiki features
+### Wiki features
 
 This wiki uses the [Markdown](http://daringfireball.net/projects/markdown/) syntax.
 
@@ -42,13 +42,12 @@ Wiki pages are normal files, with the .md extension. You can edit them locally, 
 ## SASS/.scss Partials
 
 ### Order of Importing
-Currently, we are importing several partials into the main.scss file. If adding more, be conscious about the order you place them in. _base is above _layout and _user because it contains variables and mixins that _layout and _user are dependent on. _media-queries likely modify things _layout has already declared, so based on the cascade, they needed to be imported after _layout.
+Currently, we are importing several partials into the main.scss file. If adding more, be conscious about the order you place them in. _base is above _media-queries and _user because it contains variables and mixins that _layout and _user are dependent on. _media-queries could potentially modify things main.scss has already declared, so based on the cascade, it needed to be imported at the end of main.scss.
 
 ### Non-Compiling vs. Compiling
-The _base partial contains variables and mixins that pretty much every other SCSS file will use. It is imported into every SCSS file so it is a good candidate for being non-compiling. Non-compiling means it will not generate its own CSS code. Variables and mixins don't have a CSS equivalent and are simply helpers for the rest of our styles.
+The _base partial contains variables and mixins that pretty much every other SCSS file will use. It is imported into every SCSS file so it is a good candidate for being non-compiling. Non-compiling means it will not generate its own CSS code. See: ["Sass code that doesn’t cause Sass to actually output CSS."](http://thesassway.com/beginner/how-to-structure-a-sass-project) Variables and mixins don't have a CSS equivalent and are simply helpers for the rest of our styles.
 
-_fonts, _reset, and _zen all contain code that will be compiled into CSS as well as containing helpers that can be used elsewhere. They are imported at the top of our main.scss file for this reason. We don't want them repeated on every partial, so they are not imported in _base.
-
+_fonts, _reset, and _zen all contain code that will be compiled into CSS as well as containing helpers that can be used elsewhere. They are imported at the top of our main.scss file for this reason.
 ### What Goes Where?
 
 #### _base.scss and _mixins.scss
@@ -57,58 +56,29 @@ Non-compiling helper SCSS code. Variables, mixins, etc.
 #### _media-queries.scss
 Contains layout related classes grouped by media queries. Layout classes: "A class which fundamentally divides the page into sections."
 
+Also contains media-query-specific styles.
+
 #### _user.scss
-Classes created specifically for other users/clients on campus to use in Dreamweaver's GUI. The audience and users for these "unsemantic" classes will likely be working with Dreamweaver in the Design view. They are likely unfamiliar and uncomfortable with code so the classes we create should be as meaningful as possible to us, the developers, but still non-tech-user-friendly.
+Classes created specifically for other users/clients on campus to use in Dreamweaver's GUI. The users of these "unsemantic" classes will likely be working with Dreamweaver in the Design view. They are likely unfamiliar and uncomfortable with code so the classes we create should be as meaningful as possible to us, the developers, but still user-friendly for non-tech-savvy users.
 
-Avoid explicitly presentational class names when possible, but if they are unavoidable, prefix the class with "style-". Prefix layout-related classes (like floats and clears) with "layout-"
+Avoid explicitly presentational class names when possible, but if they are unavoidable, prefix the class declared in _user.scss with "style-". Prefix layout-related classes (like floats and clears) with "layout-"
 
-### _base.scss
 
-Contains:
-
-* Variables (for colors, math, commonly used increments)
-* Framework imports (Compass, CSS3, CSS reset, Zen Grids)
-* Font imports (Muli from Google Fonts)
-
-### _mixins.scss
-
-Contains:
-
-* Modules created by Mixins. Mixins are a SASS feature.
-* ["Sass code that doesn’t cause Sass to actually output CSS."](http://thesassway.com/beginner/how-to-structure-a-sass-project)
-
-See .module- class prefix below for more information: "Classes prefixed with 'module-' represent 'reusable, modular parts of our design'" like boxes, image figures, or FAQ accordions.
-
-### _layout.scss
-
-Contains:
-
-* Styles related to the structure and sectioning of the page.
-* Will contain a lot of .layout- prefixed classes
-
-See .layout- class prefix below for more information: "layout- describes a class which fundamentally divides the page into sections."
-
-### _themes.scss (?)
-
-Specific groups of variations from _layout.scss default styles. Potentially will be implemented if we allow users to select a sub-theme (based around lime green or gray instead of light blue, for example.)
-Contains:
-
-* Mostly color specific changes. Should be imported after _layout.scss
-
-### _media-queries.scss
-
-Contains:
-
-* Media queries! Surprise.
+# Classes & Naming Conventions
 
 ## Presentation-free Markup
 
-Refrain from creating class names based on how something looks.
+In the vein of the [Separation of Concerns](http://en.wikipedia.org/wiki/Separation_of_concerns), we try to keep presentation (CSS/SCSS), structure (HTML), and function (JS/jQuery) separate. These three concepts support the most important part: the content.
+
+Refrain from creating class names (an HTML attribute) based on how something looks.
+
+"Class names should communicate *useful* information to *developers*. It’s helpful to understand what a specific class name is going to do when you read a DOM snippet, especially in multi-developer teams where front-enders won’t be the only people working with HTML components." -[Nicolas Gallagher on HTML Semantics](http://nicolasgallagher.com/about-html-semantics-front-end-architecture/)
 
 ```
 .blue-left-links { color:blue; float:left; }
 // Is less helpful when you happen to change the color scheme and layout later; but the HTML structure remains the same.
 
+// A few months later, you are asked to change the colors to reflect an upcoming holiday:
 .blue-left-links { color:pink; float:none; }
 // blue-left-links no longer makes sense. Describe the function of this element.
 
@@ -119,42 +89,22 @@ $season-hue:pink;
 // Note the use of a variable which can be used elsewhere with minimal upkeep next time the season changes.
 ```
 
-# Classes & Naming Conventions
+## [SMACSS](http://smacss.com/) Concepts
 
-Taking a bit from [SMACSS](http://smacss.com/).
+"At the very core of SMACSS is categorization. By categorizing CSS rules, we begin to see patterns and can define better practices around each of these patterns." -[SMACSS](http://smacss.com/book/categorizing)
 
-## Class Prefixes
-### .layout-
-
-layout- describes a class which fundamentally divides the page into sections.
-```
-.layout-sidebar { display:block; } 
-```
-Most noteably, layout-s are relevant to our various Dreamweaver templates. They will typically be applied to the <body> element of a .shtml file according to their template. If a structural style from layout-x was required on layout-y, then ideally, .layout-x could be applied to a parent container. This reduces redundancy and increases specificity:
-```
-...
-<body class="layout-y">
-	...
-	<article class="layout-x">
-		<div>...</div>
-	</article>
-...
-</body>
-```
-Prevents having to create a whole new class for this one style because we are DRY (Don't Repeat Yourself):
-```
-.layout-y .layout-x div { ... }
-```
+### Class Prefixes
 
 ### .module-
 
 Classes prefixed with 'module-' represent "reusable, modular parts of our design". Our previous static template included "blue boxes" that would fit in this category.
 
-```
-.module-box { @include box(); }
-
-.module-box.float-left { @include box(left); }
-```
+* Social media icons and "widgets"
+* Callout boxes
+* Staff/faculty listings and directories
+* Contact information that is often repeated
+* Slideshow
+* Gallery
 
 ### .is- (states)
 
@@ -169,8 +119,8 @@ Prefixing a class with .is- can be a good way to describe an action. It also vis
 
 They can be combined with other classes in a helpful, readable way:
 ```
-.module-faq.is-closed { @include faq(); @include closed; }
-.main-nav.is-open { @include open; }
+.module-accordion.is-closed { ... }
+.main-nav.is-open { ... }
 ```
 
 ## DRY - Don't Repeat Yourself
