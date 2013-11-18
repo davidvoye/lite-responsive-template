@@ -71,7 +71,8 @@ Also contains media-query-specific styles.
 > Better are naming schemes that suggest relationships between the names themselves. Where one is obviously bigger or smaller than another." - [Chris Coyier on Naming Media Queries](http://css-tricks.com/naming-media-queries/)
 
 Currently, our naming pattern follows geologic/geologic-ish terms for grain size, from smallest to largest:
-* Clay, Silt, Sand, Pebble, Boulder, Mountain, Continent, Planet
+
+> Clay, Silt, Sand, Pebble, Boulder, Mountain, Continent, Planet
 
 #### _shame.scss
 
