@@ -66,6 +66,13 @@ Contains layout related classes grouped by media queries. Layout classes: "A cla
 
 Also contains media-query-specific styles.
 
+> "The point here is to assign a name with abstracted meaning, so the numbers can change but the names stay the same. I'd avoid device names like "iPad" or whatever too, because that just sets up bad expectations and will date itself quickly.
+> 
+> Better are naming schemes that suggest relationships between the names themselves. Where one is obviously bigger or smaller than another." - [Chris Coyier on Naming Media Queries](http://css-tricks.com/naming-media-queries/)
+
+Currently, our naming pattern follows geologic/geologic-ish terms for grain size, from smallest to largest:
+* Clay, Silt, Sand, Pebble, Boulder, Mountain, Continent, Planet
+
 #### _shame.scss
 
 This is where all the hacky, sketchy, shameful styles live. This partial is not meant as a final solution, but a temporary place to use !important or other less-desired code until a better solution is found.
