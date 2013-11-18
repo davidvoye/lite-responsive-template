@@ -49,7 +49,9 @@ Currently, we are importing several partials into the main.scss file. If adding 
 The _base partial contains variables and mixins that pretty much every other SCSS file will use. It is imported into every SCSS file so it is a good candidate for being non-compiling. Non-compiling means it will not generate its own CSS code. See: ["Sass code that doesn’t cause Sass to actually output CSS."](http://thesassway.com/beginner/how-to-structure-a-sass-project) Variables and mixins don't have a CSS equivalent and are simply helpers for the rest of our styles.
 
 _fonts, _reset, and _zen all contain code that will be compiled into CSS as well as containing helpers that can be used elsewhere. They are imported at the top of our main.scss file for this reason.
-### What Goes Where?
+
+
+### Where Does This Code Belong?
 
 #### _base.scss and _mixins.scss
 Non-compiling helper SCSS code. Variables, mixins, etc.
@@ -177,3 +179,60 @@ Great explaination from [Stubbornella in the OOCSS FAQ](https://github.com/stubb
 2. They are unique identifiers, which makes components built with them something like singletons, not reusable on the same page
 
 On the other hand, IDs are great for linking and JS hooks. Put them in the HTML, just don’t use them for styles."
+
+
+# File Structure
+
+## Local site
+
+* /customize
+** customize.css
+** site-banner.jpg
+** site-banner.psd
+** navigation.html
+** header.html
+** README / Instructions.txt
+
+* /templates
+** sidebar.dwt
+** full-page.dwt
+** two-column.dwt
+** three-column.dwt
+
+* /images
+** /gallery
+** /slideshow
+
+* /documents
+
+* index.shtml
+* contact.shtml
+* staff-faculty-listing.shtml
+* faq.shtml
+
+## wwucommons
+
+* /js
+** western.js
+
+* /styles
+** /css
+** /scss
+*** main.scss
+*** _base.scss
+*** _fonts.scss
+*** _media-queries.scss
+*** _mixins.scss
+*** _reset.scss
+*** _shame.scss
+*** _user.scss
+
+# Converting Static Template Sites to the Lite Responsive Template
+
+## How To
+
+## Old Classes and Selectors
+
+(List equivalents for easy find and replace)
+
+## Troubleshooting
