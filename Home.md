@@ -54,15 +54,30 @@ _fonts, _reset, and _zen all contain code that will be compiled into CSS as well
 #### _base.scss and _mixins.scss
 Non-compiling helper SCSS code. Variables, mixins, etc.
 
+#### _user.scss
+Classes created specifically for other users/clients on campus to use in Dreamweaver's GUI. The users of these "unsemantic" classes will likely be working with Dreamweaver in the Design view. They are likely unfamiliar and uncomfortable with code so the classes we create should be as meaningful as possible to us, the developers, but still user-friendly for non-tech-savvy users.
+
+Avoid explicitly presentational class names when possible, but if they are unavoidable, prefix the class declared in _user.scss with "style-". Prefix layout-related classes (like floats and clears) with "layout-"
+
 #### _media-queries.scss
 Contains layout related classes grouped by media queries. Layout classes: "A class which fundamentally divides the page into sections."
 
 Also contains media-query-specific styles.
 
-#### _user.scss
-Classes created specifically for other users/clients on campus to use in Dreamweaver's GUI. The users of these "unsemantic" classes will likely be working with Dreamweaver in the Design view. They are likely unfamiliar and uncomfortable with code so the classes we create should be as meaningful as possible to us, the developers, but still user-friendly for non-tech-savvy users.
+#### _shame.scss
 
-Avoid explicitly presentational class names when possible, but if they are unavoidable, prefix the class declared in _user.scss with "style-". Prefix layout-related classes (like floats and clears) with "layout-"
+This is where all the hacky, sketchy, shameful styles live. This partial is not meant as a solution, but a temporary place to use !important or other less-desired code until a better solution is found.
+
+From [Harry Robert's article on shame.css](http://csswizardry.com/2013/04/shame-css/):
+"By putting your bodges, hacks and quick-fixes in their own file you do a few things:
+
+* You make them stick out like a sore thumb.
+* You keep your ‘main’ codebase clean.
+* You make developers aware that their hacks are made very visible.
+* You make them easier to isolate and fix.
+* $ git blame shame.css."
+
+Be sure to include documentation and notes inside of comments like these double forward-slashes.
 
 
 # Classes & Naming Conventions
@@ -125,6 +140,33 @@ They can be combined with other classes in a helpful, readable way:
 ```
 
 ## DRY - Don't Repeat Yourself
+
+Different ways to create and maintain reusable code.
+
+```
+// In this example, all three selectors have the same font color.
+// Rather than declaring a specific hex color code multiple times:
+.module-slide-caption { color: #003f87; }
+h2 { color: #003f87; }
+a:hover { color: #003f87; }
+
+// Declare it once with a reusable variable:
+$brandColor: #003f87;
+.module-slide-caption { color: $brandColor; }
+h2 { color: $brandColor; }
+a:hover { color: $brandColor; }
+
+// To be even more DRY, combine selectors
+//(if this is the only property being declared for these selectors):
+.module-slide-caption, h2, a:hover { color: $brandColor; }
+
+// If these three selectors had other properties, this color could be @extend-ed with a placeholder selector:
+%brand-voice { color: $brandColor; }
+.module-slide-caption { font-size: 2em; **@extend brand-voice;** }
+h2 { font-weight:bold; **@extend brand-voice;** }
+a:hover { @include transition(.5s); **@extend brand-voice;** }
+
+```
 
 ## Stick to Classes; Don't use IDs
 
