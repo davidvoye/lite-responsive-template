@@ -252,16 +252,56 @@ Great explaination from [Stubbornella in the OOCSS FAQ](https://github.com/stubb
 
 ## Layout
 
+Our layout is build from [Zen Grids](http://zengrids.com/) and visually is a combination of the Static Template and WWUZEN for our Drupal sites.
+
 ### Repeatable & Reusable
 
-Increments, variables
+#### Color Variables
+We use SCSS variables of [Western's brand colors](http://news.wwu.edu/go/doc/1538/993731/Color-usage) throughout our styles.
+
+#### Basic Unit
+Variables are also used for number values. 5px and 10px were commonly used for margins and padding. Based on this pattern we created our "baseline"/basic unit of 20px. This number can be manipulated with simple math functions. See Baseline Grid below for more information.
+
+#### Mixins
+
+_mixins.scss contains reusable code that can be @include-ed. This provides consistency for a number of tasks we often come across, such as "hiding" text off-screen in place of a background-image or logo.
+```
+@mixin hide-text {
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+```
 
 ## Typography
 
+## Type Scale & Hierarchy
+
+### Resources
+* [Golden Ratio Typography Calculator](http://www.pearsonified.com/typography/)
+* [Type Scale](http://type-scale.com/)
+
+### Our Type Scale
+
+* Body line height: 20px
+
+* Body, paragraphs, h4, h5, h6: 13px
+* h3: 17px
+* h2: 21px
+* h1: 34px
+
 ### Baseline Grid
 
-### Type Scale & Hierarchy
+From [Fluid Baseline Grid](http://fluidbaselinegrid.com/):
+> Baseline grids "establish a typographic hierarchy that improves readability and creates harmony within the text. Measure, leading, vertical rhythm, emphasis and scale are something we obsess about."
 
+Our baseline grid is based on a 20px scale. This is represented by the variable $baseline in our SCSS (_base.scss):
+```
+// Baseline grid; basic unit
+$baseline: 20px;
+$half-base:($baseline/2); // 10px
+$quarter-base:($baseline/4); // 5px
+```
 
 # Converting Static Template Sites to the Lite Responsive Template
 
@@ -269,7 +309,13 @@ Increments, variables
 
 ## Differences Between the Static Template and the Lite Responsive Template
 
-### Old Classes and Selectors
+### File Structure
+
+### Templates
+
+### CSS
+
+#### Old Classes and Selectors
 
 (List equivalents for easy find and replace)
 
