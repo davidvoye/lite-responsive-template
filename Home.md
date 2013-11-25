@@ -291,12 +291,15 @@ _mixins.scss contains reusable code that can be @include-ed. This provides consi
 
 ### Our Type Scale
 
+* Body font-size: 10px
 * Body line height: 20px
 
-* Body, paragraphs, h4, h5, h6: 13px
-* h3: 17px
-* h2: 21px
-* h1: 34px
+* Body, paragraphs, h4, h5, h6: 13px (1.3em)
+* h3: 17px (1.7em)
+* h2: 21px (2.1em)
+* h1: 31px (3.1em)
+
+* It is simple to find the equivalent [em](http://css-tricks.com/css-font-size/) amount for pixels. Our base font-size is 10px, so any pixel font-size can just be moved over a decimal point to render the em value. 15px = 1.5em (based on 10px base).
 
 ### Baseline Grid
 
