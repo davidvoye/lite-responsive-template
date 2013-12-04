@@ -27,8 +27,10 @@ The Lite Template is meant to be the responsive rendition of the current "static
 * Replace text with **social media icons** in main navigation (at 750px+).
 * Update **+/- icons for mobile nav**.
 * Add **Western search** code. Currently only searches site.
-* Gallery
-* Slideshow
+* **Gallery**
+* **Slideshow**
+* Make **documentation multiple pages** or better organized.
+* **Finish documentation**
 
 ### Wiki features
 
