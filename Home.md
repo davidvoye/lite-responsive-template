@@ -31,6 +31,7 @@ The Lite Template is meant to be the responsive rendition of the current "static
 * **Slideshow**
 * Make **documentation multiple pages** or better organized.
 * **Finish documentation**
+* **Instructional documentation and Quick Start Guide** for users
 
 ### Wiki features
 
