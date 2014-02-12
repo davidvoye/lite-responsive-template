@@ -333,6 +333,8 @@ $quarter-base:($baseline/4); // 5px
 
 ### File Structure
 
+* For local development you will need to place a copy of [wwucommon](https://bitbucket.org/wwuweb/wwucommon) inside of your site root.
+
 ### Templates
 
 ### CSS
