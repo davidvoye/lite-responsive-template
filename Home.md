@@ -24,11 +24,9 @@ The Lite Template is meant to be the responsive rendition of the current "static
 
 
 * Create more flexible **site names** with jQuery and styles. Apply ".is-constrained-type-size" or a better class name when site name character count is more than ~50. Also remove "bottom:-35px;" when text wraps to a second line. Support even longer titles if necessary in custom.css. Support "hiding" (but still accessible) text and letting banner image have text.
-* Replace text with **social media icons** in main navigation (at 750px+).
 * Update **+/- icons for mobile nav**.
 * Add **Western search** code. Currently only searches site.
 * **Gallery**
-* **Slideshow**
 * Make **documentation multiple pages** or better organized.
 * **Finish documentation**
 * **Instructional documentation and Quick Start Guide** for users
